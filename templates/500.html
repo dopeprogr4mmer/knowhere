@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block overwrite%}
+{% endblock %}
+{% block center %}
+  <div style="position: absolute; left: 30%; top: 50%">
+    <font size="+3"><strong>Oops! An unexpected error occured.</strong></font>
+    <br>
+    <font size="+3"><strong>Contact System Administrator</strong></font>
+    <br>
+    <br>
+    <div style="position: absolute;left: 36%">
+      <a class="btn btn-primary" href="{% url 'home-view' %}">Homepage</a>
+      <a class="btn btn-primary" href="">Try Again</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block overwrite%}
+{% endblock %}
+{% block center %}
+	<div style="position: absolute; left: 34%; top: 50%">
+		<font size="+3"><strong>Error 404! Page Not Found</strong></font>
+		<br>
+		<br>
+		<div style="position: absolute;left: 34%">
+			<a class="btn btn-primary" href="{% url 'home-view' %}">Homepage</a>
+			<a class="btn btn-primary" href="">Try Again</a>
+		</div>
+	</div>
+{% endblock %}
+
