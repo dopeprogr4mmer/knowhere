@@ -21,6 +21,8 @@ from django.urls import path
 from form.views import home_view, form_view
 from search.views import search_view, search_results_view
 from scraper.views import get_images_view
+from django.views.static import serve
+from django.conf.urls import url
 
 handler404 = 'search.views.handler404'
 handler500 = 'search.views.handler500'
@@ -32,9 +34,9 @@ urlpatterns = [
     path('search/', search_view, name='search-view'),
     path('search_results/', search_results_view, name='search-results-view'),
     path('get_images/', get_images_view, name='get-images-view'),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root':settings.STATIC_ROOT}),
 ]
 
-
-if settings.DEBUG:
-	urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
-	urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
