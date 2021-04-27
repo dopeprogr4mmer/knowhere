@@ -25,7 +25,7 @@ class DemoForm(forms.ModelForm):
 
 	def clean_phone_number(self, *argss, **kwargs):
 		phone_number = self.cleaned_data.get("phone_number")
-		if phone_number>999999999:
+		if phone_number in range(1000000000,9999999999):
 			return phone_number
 		raise forms.ValidationError("The Phone Number Is Not Valid")
 	
